@@ -10,9 +10,7 @@ fun main() {
 
     //Player Status
     printPlayerStatus(auraColor, isBlessed, name, healthStatus)
-
-    castFireball(58)
-
+    castFireball(34)
 }
 
 private fun printPlayerStatus(
@@ -27,11 +25,6 @@ private fun printPlayerStatus(
     )
     println("$name $healthStatus")
 }
-
-//private fun auraColor(isBlessed: Boolean, healthPoints: Int, isImmortal: Boolean): String {
-//    val auraVisible = isBlessed && healthPoints > 50 || isImmortal
-//    return if (auraVisible) "GREEN" else "NONE"
-//}
 
 private fun auraColor(isBlessed: Boolean, healthPoints: Int, isImmortal: Boolean) =
     if (isBlessed && healthPoints > 50 || isImmortal) "GREEN" else "NONE"
@@ -49,22 +42,6 @@ private fun formatHealthStatus(healthPoints: Int, isBlessed: Boolean) =
         else -> "is in awful condition!"
     }
 
-//    val healthStatus = if (healthPoints == 100){
-//        "is in excellent condition!"
-//    } else if (healthPoints in 90..99){
-//        "has a few scratches."
-//    } else if (healthPoints in 75..89){
-//        if (isBlessed){
-//            "has some minor wounds but is healing quite quickly!"
-//        } else {
-//            "has some minor wounds."
-//        }
-//    } else if (healthPoints in 15..74){
-//        "looks pretty hurt."
-//    } else {
-//        "is in awful condition."
-//    }
-
 private fun castFireball(numFireballs: Int = 2) =
     when(numFireballs){
         in 1..10 -> println("tipsy")
@@ -74,13 +51,5 @@ private fun castFireball(numFireballs: Int = 2) =
         in 41..50 -> println("t0aSt3d")
         else -> println("Input 1 to 50")
     }
-
-
-
-    //if (numFireballs > 0 && numFireballs <= 50)
-    //    println("A glass of Fireball springs into existence. (x$numFireballs)")
-    //else
-    //    println("The number of fireball shall be between 1 and 50.")
-
 
 
