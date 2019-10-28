@@ -1,3 +1,5 @@
+package com.guadoo.NyetHack
+
 import java.lang.Exception
 
 fun main() {
@@ -23,8 +25,8 @@ fun main() {
 
 
 fun proficiencyCheck(swordsJuggling: Int?){
-    //swordsJuggling ?: throw UnskilledSwordJugglerException()
-    checkNotNull(swordsJuggling,{"Player cannot juggle swords"})
+    //swordsJuggling ?: throw com.guadoo.NyetHack.UnskilledSwordJugglerException()
+    checkNotNull(swordsJuggling,{"com.guadoo.NyetHack.Player cannot juggle swords"})
 }
 
 fun juggleSwords(swordsJuggling: Int){
@@ -32,4 +34,4 @@ fun juggleSwords(swordsJuggling: Int){
 }
 
 class UnskilledSwordJugglerException():
-        IllegalStateException("Player cannot juggle swords")
+        IllegalStateException("com.guadoo.NyetHack.Player cannot juggle swords")
