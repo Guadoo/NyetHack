@@ -2,7 +2,7 @@ package com.guadoo.NyetHack
 
 fun main() {
 
-    val player = Player()
+    val player = Player("Madrigal", 80,true, false)
 
     player.castFireball()
 

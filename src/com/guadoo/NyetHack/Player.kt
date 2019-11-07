@@ -1,16 +1,36 @@
 package com.guadoo.NyetHack
 
-class Player {
+import java.io.File
 
-    var name = "madrigal"
-        get()=field.capitalize()
+class Player(_name: String,
+             var healthPoints: Int = 100,
+             val isBlessed: Boolean,
+             private  val isImmortal: Boolean) {
+
+    var name = _name
+        get()="${field.capitalize()} of $hometown"
         private set(value) {
             field = value.trim()
         }
 
-    val healthPoints = 89
-    val isBlessed = true
-    private val isImmortal = false
+    val hometown: String = by lazy {selectHomeTown()}
+
+    private fun selectHomeTown() = File("data/towns.txt")
+        .readText()
+        .split("\n")
+        .shuffled()
+        .first()
+
+    init {
+        require(healthPoints > 0, {"healthPoint must be greater than zero."})
+        require(name.isNotBlank(), {"Player must have a name."})
+    }
+
+    constructor(name: String): this(name,
+        isBlessed = true,
+        isImmortal = false){
+        if(name.toLowerCase() == "kar") healthPoints = 40
+    }
 
     fun castFireball(numFireballs: Int = 2) =
         println("A glass of Fireball springs into existence.(x$numFireballs)")
