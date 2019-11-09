@@ -13,7 +13,8 @@ class Player(_name: String,
             field = value.trim()
         }
 
-    val hometown: String = by lazy {selectHomeTown()}
+    //val hometown: String = by lazy {selectHomeTown()}
+    val hometown = lazy{selectHomeTown()}
 
     private fun selectHomeTown() = File("data/towns.txt")
         .readText()
